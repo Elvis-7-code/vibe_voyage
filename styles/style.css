@@ -726,6 +726,7 @@
     font-family: var(--font-mono); font-size: 12px;
     transition: border-color 0.2s, color 0.2s, translate 0.3s var(--ease);
   }
+  .social-row a svg { width: 20px; height: 20px; }
   .social-row a:hover { border-color: var(--red); color: var(--red-text); translate: 0 -3px; }
   .footer-col h4 {
     font-family: var(--font-mono); font-size: 12px; font-weight: 400;

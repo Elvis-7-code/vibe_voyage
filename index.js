@@ -1,6 +1,18 @@
 (() => {
   'use strict';
 
+  // Safety net: if anything below throws, or IntersectionObserver never
+  // fires for some other reason, force-reveal everything after a short
+  // delay so the page can never stay permanently blank.
+  addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => {
+        el.style.opacity = '1';
+        el.classList.add('in');
+      });
+    }, 3000);
+  });
+
   const doc = document.documentElement;
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
